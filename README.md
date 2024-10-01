@@ -34,7 +34,8 @@ Here's a walkthrough of implemented required features:
 
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with ...
+
 <!-- Recommended tools:
 [Recforth](https://apps.microsoft.com/detail/9p03bz82l9f2?hl=en-US&gl=US)
 [Clipchamp](https://clipchamp.com/en/windows-video-editor/) for Windows
