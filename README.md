@@ -28,7 +28,10 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
+
 ![project2](https://github.com/user-attachments/assets/6c3bbdc1-507f-4feb-b7f1-3e17bc0b66df)
+
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
