@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from "react";
 import Flashcard from './flashcards.jsx';
 import './app.css';
 
-
-const FlashcardApp = () => {
-  const flashcards = [
+function FlashcardApp() {
+  const initialFlashcards = [
     { question: "What is an Algorithm?", answer: "A step-by-step procedure for solving a problem or accomplishing a task." },
     { question: "What is Big O Notation?", answer: "A way to describe the time complexity of an algorithm, focusing on its growth rate." },
     { question: "What is a Data Structure?", answer: "A way of organizing and storing data for efficient access and modification." },
@@ -26,23 +25,96 @@ const FlashcardApp = () => {
     { question: "What is a Compiler?", answer: "A program that translates high-level source code into machine code that a computer's processor can execute." },
     { question: "What is the Difference Between TCP and UDP?", answer: "TCP is connection-oriented and reliable, while UDP is connectionless and faster but less reliable." }
   ];
+
+  const [flashcards, setFlashcards] = useState(initialFlashcards);
+  const [currentIndex, setCurrentIndex] = useState(0); 
+  const [userGuess, setUserGuess] = useState(""); 
+  const [feedback, setFeedback] = useState(""); 
+  const [isFlipped, setIsFlipped] = useState(false); 
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
+
+
+  const shuffleCards = () => {
+    const shuffled = [...flashcards].sort(() => Math.random() - 0.5);
+    setFlashcards(shuffled);
+    setCurrentIndex(0); 
+    setUserGuess(""); 
+    setFeedback(""); 
+    setIsFlipped(false);
+  };
+
+
+  const handleNextCard = () => {
+    if (currentIndex < flashcards.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setUserGuess(""); 
+      setFeedback(""); 
+      setIsFlipped(false); 
+    }
+  };
+
   
+  const handlePrevCard = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setUserGuess(""); 
+      setFeedback(""); 
+      setIsFlipped(false); 
+    }
+  };
 
-  const [currentCard, setCurrentCard] = useState(flashcards[0]);
-
-  const selectRandomCard = () => {
-    const randomIndex = Math.floor(Math.random() * flashcards.length);
-    setCurrentCard(flashcards[randomIndex]);
+  const handleGuessSubmit = (e) => {
+    e.preventDefault(); 
+    if (userGuess.trim().toLowerCase() === flashcards[currentIndex].answer.toLowerCase()) {
+      setFeedback("Correct!");
+      setCurrentStreak(currentStreak + 1);
+      if (currentStreak + 1 > longestStreak) {
+        setLongestStreak(currentStreak + 1);
+      }
+    } else {
+      setFeedback("Incorrect. Try again!");
+      setCurrentStreak(0);
+    }
+    setIsFlipped(true); 
   };
 
   return (
-    <div>
-      <div className='content'>
-      <Flashcard question={currentCard.question} answer={currentCard.answer} />
-      <button onClick={selectRandomCard}>Next Card</button>
+    <div className="flashcard-app">
+      <div className="streak-counter">
+        <p>Current Streak: {currentStreak}</p>
+        <p>Longest Streak: {longestStreak}</p>
+      </div>
+      <Flashcard
+        question={flashcards[currentIndex].question}
+        answer={flashcards[currentIndex].answer}
+        isFlipped={isFlipped}
+        setIsFlipped={setIsFlipped}
+      />
+      <form onSubmit={handleGuessSubmit} className="guess-form">
+        <input
+          type="text"
+          value={userGuess}
+          onChange={(e) => setUserGuess(e.target.value)}
+          placeholder="Enter your guess"
+          className="guess-input"
+        />
+        <button type="submit" className="submit-button">Submit</button>
+      </form>
+      {feedback && <p className="feedback">{feedback}</p>}
+      <div className="navigation-buttons">
+        <button onClick={handlePrevCard} disabled={currentIndex === 0}>
+          Back
+        </button>
+        <button onClick={handleNextCard} disabled={currentIndex === flashcards.length - 1}>
+          Next
+        </button>
+        <button onClick={shuffleCards} className="shuffle-button">
+          Shuffle</button>
       </div>
     </div>
   );
-};
+}
+
 
 export default FlashcardApp;

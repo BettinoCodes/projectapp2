@@ -1,9 +1,14 @@
-import './flashcards.css'; 
+import React from "react";
+import './flashcards.css';
 
-function Flashcard (props){
+function Flashcard(props) {
+  const handleCardClick = () => {
+    props.setIsFlipped(!props.isFlipped);
+  };
+
   return (
-    <div className="flashcard-container">
-      <div className="flashcard">
+    <div className="flashcard-container" onClick={handleCardClick}>
+      <div className={`flashcard ${props.isFlipped ? "flipped" : ""}`}>
         <div className="flashcard-front">
           <h2>{props.question}</h2>
         </div>
@@ -13,6 +18,6 @@ function Flashcard (props){
       </div>
     </div>
   );
-};
+}
 
 export default Flashcard;
