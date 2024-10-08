@@ -2,6 +2,7 @@ import React from "react";
 import './flashcards.css';
 
 function Flashcard(props) {
+  
   const handleCardClick = () => {
     props.setIsFlipped(!props.isFlipped);
   };
