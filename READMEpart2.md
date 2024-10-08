@@ -32,8 +32,7 @@ Here's a walkthrough of implemented user stories:
 
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
+GIF created with ...
 
 [Recforth](https://apps.microsoft.com/detail/9p03bz82l9f2?hl=en-US&gl=US)
 
