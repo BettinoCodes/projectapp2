@@ -30,11 +30,16 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+![project3](https://github.com/user-attachments/assets/31b978af-15fb-4814-a5a6-1107e9034c14)
+
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
 <!-- Recommended tools:
 
-![project3](https://github.com/user-attachments/assets/31b978af-15fb-4814-a5a6-1107e9034c14)
+[Recforth](https://apps.microsoft.com/detail/9p03bz82l9f2?hl=en-US&gl=US)
+
+[Clipchamp](https://clipchamp.com/en/windows-video-editor/) for Windows
+
 
 
 ## Notes
