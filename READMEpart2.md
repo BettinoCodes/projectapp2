@@ -22,15 +22,14 @@ The following **optional** features are implemented:
 - [x] A counter displays the user's current and longest streak of correct responses
 - [ ] A user can mark a card that they have mastered and have it removed from the pool of answers as well as added to a list of mastered cards
 
-The following **additional** features are implemented:
-
-* [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
 ![project3](https://github.com/user-attachments/assets/31b978af-15fb-4814-a5a6-1107e9034c14)
+
+
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
